@@ -76,7 +76,6 @@ echo '</div>';
 
 echo '<br><br><br>--------------------------SESTA UZDUOTIS------------------------------<br><br><br>';
 
-// Metam monetą. Monetos kritimo rezultatą imituojam rand() funkcija, kur 0 yra herbas, o 1 - skaičius. Monetos metimo rezultatus išvedame į ekraną atskiroje eilutėje: “S” jeigu iškrito skaičius ir “H” jeigu herbas. Suprogramuokite keturis skirtingus scenarijus kai monetos metimą stabdome:
 // Iškritus herbui;
 // Tris kartus iškritus herbui;
 // Tris kartus iš eilės iškritus herbui;
@@ -114,3 +113,18 @@ do {
 
 } while ( $herbuSkaicius < 3); // o jei nori vieno tai perrasai cia i viena :)
 
+echo '<br><br><br>--------------------------SEPTINTA UZDUOTIS------------------------------<br><br><br>';
+// Kazys ir Petras žaidžiai šaškėm. Petras surenka taškų kiekį nuo 10 iki 20, Kazys surenka taškų kiekį nuo 5 iki 25. Vienoje eilutėje išvesti žaidėjų vardus su taškų kiekiu ir “Partiją laimėjo: ​laimėtojo vardas​”. Taškų kiekį generuokite funkcija ​rand()​. Žaidimą laimi tas, kas greičiau surenka 222 taškus. Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba daugiau taškų.
+
+$kazysCount = 0;
+$petrasCount = 0;
+do {
+    $kazioTaskai = rand(5, 25);
+    $kazysCount+=$kazioTaskai;
+    $petroTaskai = rand(10, 20);
+    $petrasCount+= $petroTaskai;
+    echo $kazioTaskai > $petroTaskai ? '<br> partija laimejo Kazys <br>' : '<br> partija laimejo Petras <br>';
+    echo $kazysCount > $petrasCount ? "pirmauja Kazys, turintis $kazysCount taskus <br>" : "pirmauja Petras, turintis $petrasCount taskus <br>";
+
+} while (($kazysCount < 222) && ($petrasCount < 222));
+echo $kazysCount > $petrasCount ? "<br> Laimejo Kazys surinkes $kazysCount taskus" : "<br> Laimejo Petras surinkes $petrasCount taskus";
