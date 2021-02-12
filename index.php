@@ -1,6 +1,3 @@
-<!-- Naršyklėje nupieškite linija iš 400 “*”. 
-Naudodami css stilių “suskaldykite” liniją taip, kad visos žvaigždutės matytųsi ekrane;
-Programiškai “suskaldykite” žvaigždutes taip, kad vienoje eilutėje nebūtų daugiau nei 50 “*”;  -->
 <?php
 
 echo '<br><br><br>--------------------------PIRMA UZDUOTIS------------------------------<br><br><br>';
@@ -17,3 +14,25 @@ for($i = 0; $i < (400 / 50); $i++){
     echo '</div>';
     echo '<br>';
 }
+
+$didesnisUzSimtaPem = 0;
+echo '<br><br><br>--------------------------ANTRA UZDUOTIS------------------------------<br><br><br>';
+
+for($i = 0; $i < 50; $i++){
+    $skaicius = rand(0, 300);
+    if ($skaicius > 275){
+        echo "<pre><div style='float: left; color: red'>$skaicius </div></pre>";
+    } elseif ($skaicius > 150){
+        echo "<pre><div style = 'float: left;'>$skaicius </div></pre>";
+        $didesnisUzSimtaPem++;
+    }
+}
+
+echo "<br><div style='display Didesniu uz 150 buvo: $didesnisUzSimtaPem";
+
+echo '<br><br><br>--------------------------TRECIA UZDUOTIS UZDUOTIS------------------------------<br><br><br>';
+
+// Vienoje eilutėje atspausdinkite visus skaičius nuo 1 iki atsitiktinio skaičiaus tarp 3000 - 4000 pvz(aibė nuo 1 iki 3476), kurie dalijasi iš 77 be liekanos. Skaičius atskirkite kableliais. Po paskutinio skaičiaus kablelio neturi būti. Jeigu reikia, panaudokite css, kad visi rezultatai matytųsi ekrane.
+
+$ribinisSkaicius = rand(1, rand(3000, 4000));
+echo $ribinisSkaicius;
