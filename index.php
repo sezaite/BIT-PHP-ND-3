@@ -82,6 +82,7 @@ echo '<br><br><br>--------------------------SESTA UZDUOTIS----------------------
 // herbas skaicius herbas skaicius (norejau tris kartus kartoti bet labai ilgai spausdina);
 
 echo '<br><br> B dalis <br>';
+
 $tekstukas = '';
 do { 
     $moneta = rand(0, 1) > 0 ? 'skaicius' : 'herbas';
@@ -114,7 +115,6 @@ do {
 } while ( $herbuSkaicius < 3); // o jei nori vieno tai perrasai cia i viena :)
 
 echo '<br><br><br>--------------------------SEPTINTA UZDUOTIS------------------------------<br><br><br>';
-// Kazys ir Petras žaidžiai šaškėm. Petras surenka taškų kiekį nuo 10 iki 20, Kazys surenka taškų kiekį nuo 5 iki 25. Vienoje eilutėje išvesti žaidėjų vardus su taškų kiekiu ir “Partiją laimėjo: ​laimėtojo vardas​”. Taškų kiekį generuokite funkcija ​rand()​. Žaidimą laimi tas, kas greičiau surenka 222 taškus. Partijas kartoti tol, kol kažkuris žaidėjas pirmas surenka 222 arba daugiau taškų.
 
 $kazysCount = 0;
 $petrasCount = 0;
@@ -128,3 +128,88 @@ do {
 
 } while (($kazysCount < 222) && ($petrasCount < 222));
 echo $kazysCount > $petrasCount ? "<br> Laimejo Kazys surinkes $kazysCount taskus" : "<br> Laimejo Petras surinkes $petrasCount taskus";
+
+echo '<br><br><br>--------------------------ASTUNTA UZDUOTIS------------------------------<br><br><br>';
+
+$randomColor = (rand(0, 256) . ', '. rand(0, 256) . ', '. rand(0, 256));
+
+echo '<br><br><br>--------------------------DEVINTA UZDUOTIS------------------------------<br><br><br>';
+
+$pirmoPradzia = microtime(true);
+for($i = 0; $i < 1000000; $i++){
+    $c = '10 bezdzioniu \r\n suvalge 20 bananu.';
+}
+$pirmoPabaiga = microtime(true);
+$pirmasUztruko = $pirmoPabaiga - $pirmoPradzia;
+
+$antroPradzia = microtime(true);
+for($i = 0; $i < 1000000; $i++){
+    $c = "10 bezdzioniu \r\n suvalge 20 bananu.";
+}
+$antroPabaiga = microtime(true);
+$antrasUztruko = $antroPabaiga - $antroPradzia;
+
+echo $antrasUztruko> $pirmasUztruko ? 'dvigubos kabutes spasdinasi ilgiau' : 'viengubos kabutes spausdinasi ilgiau';
+
+echo '<br><br><br>--------------------------DESIMTA UZDUOTIS------------------------------<br><br><br>';
+// Sumodeliuokite vinies kalimą. Įkalimo gylį sumodeliuokite pasinaudodami rand() funkcija. Vinies ilgis 8.5cm (pilnai sulenda į lentą).
+// “Įkalkite” 5 vinis mažais smūgiais. Vienas smūgis vinį įkala 5-20 mm. Suskaičiuokite kiek reikia smūgių.
+// “Įkalkite” 5 vinis dideliais smūgiais. Vienas smūgis vinį įkala 20-30 mm, bet yra 50% tikimybė (pasinaudokite rand() funkcija tikimybei sumodeliuoti), kad smūgis nepataikys į vinį. Suskaičiuokite kiek reikia smūgių.
+
+//KALIMAS MAZAIS SMUGIAIS
+$viniesIlgis = 8.5;
+$ikalta = 0;
+for ($i = 0; $i < 5; $i++){
+    $ikalta += rand(0.5, 2);
+    if ($ikalta > $viniesIlgis){
+        echo 'ikaliau su ' . ($i + 1) . ' mazais smugiais. <br>';
+        break;
+    }
+}
+echo $ikalta < $viniesIlgis ? 'penkiu mazu smugiu nepakako<br>' : 'sukaliau vini pilnai<br>';
+
+//KALIMAS DIDELIAIS SMUGIAIS
+$viniesIlgis = 8.5;
+$ikalta = 0;
+for ($i = 0; $i < 5; $i++){
+    if (rand(0, 1) === 1){
+    $ikalta += rand(2, 3);
+    } 
+    if ($ikalta > $viniesIlgis){
+        echo 'ikaliau su ' . ($i + 1) . ' dideliais smugiais. <br>';
+        break;
+    }
+}
+echo $ikalta < $viniesIlgis ? 'penkiu dideliu smugiu nepakako<br>' : 'sukaliau vini pilnai<br>';
+
+echo '<br><br><br>--------------------------DESIMTA UZDUOTIS------------------------------<br><br><br>';
+// Sugeneruokite stringą, kurį sudarytų 50 atsitiktinių skaičių nuo 1 iki 200, atskirtų tarpais. Skaičiai turi būti unikalūs (t.y. nesikartoti). Sugeneruokite antrą stringą, pasinaudodami pirmu, palikdami jame tik pirminius skaičius (t.y tokius, kurie dalinasi be liekanos tik iš 1 ir patys savęs). Skaičius stringe sudėliokite didėjimo tvarka, nuo mažiausio iki didžiausio.
+
+$skaiciuMasyvas = [];
+
+while (count($skaiciuMasyvas) < 50){
+    $skaicius = rand(1, 200);
+    if (!in_array($skaicius, $skaiciuMasyvas)){
+        array_push($skaiciuMasyvas, $skaicius);
+    }
+}
+
+$stringas = implode(' ', $skaiciuMasyvas);
+echo "<br><br>$stringas<br><br>";
+$pirminiuSkaiciuMasyvas = [];
+for ($i = 0; $i < 50; $i++){
+    $daliniuCount = 0;
+    for($j = 1; $j <= $skaiciuMasyvas[$i]; $j++){
+        if ($skaiciuMasyvas[$i] % $j === 0){
+            $daliniuCount++;
+        }
+    }
+    if($daliniuCount < 3){
+        $pirminis = $skaiciuMasyvas[$i];
+        array_push($pirminiuSkaiciuMasyvas, $pirminis);
+    }
+}
+sort($pirminiuSkaiciuMasyvas);
+$pirminiuSkStringas = implode(' ', $pirminiuSkaiciuMasyvas);
+echo "<br><br>$pirminiuSkStringas<br><br>";
+
