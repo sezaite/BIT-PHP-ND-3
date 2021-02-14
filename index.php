@@ -16,7 +16,7 @@ for($i = 0; $i < (400 / 50); $i++){
 }
 
 $didesnisUzSimtaPem = 0;
-echo '<br><br><br>--------------------------ANTRA UZDUOTIS------------------------------<br><br><br>';
+echo '<br><br><br>---------------ANTRA UZDUOTIS----------------<br><br><br>';
 
 for($i = 0; $i < 50; $i++){
     $skaicius = rand(0, 300);
@@ -132,35 +132,7 @@ echo $kazysCount > $petrasCount ? "<br> Laimejo Kazys surinkes $kazysCount tasku
 echo '<br><br><br>--------------------------ASTUNTA UZDUOTIS------------------------------<br><br><br>';
 
 
-
-// $randomColor = (rand(0, 256) . ', '. rand(0, 256) . ', '. rand(0, 256));
-// echo "<div style = 'width: 300px; height: 300px'>" . generuokEilutes() . '</div>';
-
-
-// function generuokEilutes(){
-//  for ($i = 0; $i < 21; $i++){
-//     $HTML = "<div style='width: 100%; display: inline-block; text-align: center'>" . generuokZvaigzdutes(i) . '</div>';
-//  } return $HTML;
-// }
-
-// function generuokZvaigzdutes($eilute){
-//     $HTML = '';
-//     if ($eilute < 10) {
-//         for($i = 0; $i < $eilute; $i++){
-//             $HTML .= "<div style ='padding-right: 10px; display: inline-block;'>*</div>";
-//         }
-//     } else {
-//         for ($i = 10; ($i > 21 - $eilute); $i--){
-//             $HTML .= "<div style ='padding-right: 10px; display: inline-block;'>*</div>";
-//         }
-//     }
-// }
-
-///////////////////////////////////////////
-
-$randomColor = (rand(0, 256) . ', '. rand(0, 256) . ', '. rand(0, 256));
 echo "<div style = 'width: 300px; height: 300px'>";
-
  for ($eilute = 0; $eilute < 21; $eilute++){
     echo "<div style='width: 100%; display: inline-block; text-align: center'>";
     if ($eilute < 11) {
@@ -224,7 +196,7 @@ for ($i = 0; $i < 5; $i++){
 }
 echo $ikalta < $viniesIlgis ? 'penkiu dideliu smugiu nepakako<br>' : 'sukaliau vini pilnai<br>';
 
-echo '<br><br><br>--------------------------DESIMTA UZDUOTIS------------------------------<br><br><br>';
+echo '<br><br><br>----------------VIENUOLIKTA UZDUOTIS--------------<br><br><br>';
 
 $skaiciuMasyvas = [];
 
@@ -253,9 +225,5 @@ for ($i = 0; $i < 50; $i++){
 sort($pirminiuSkaiciuMasyvas);
 $pirminiuSkStringas = implode(' ', $pirminiuSkaiciuMasyvas);
 echo "<br><br>$pirminiuSkStringas<br><br>";
-
-
-
- 
  
     ?>
