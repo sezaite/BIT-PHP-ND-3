@@ -60,7 +60,7 @@ echo '<br><br><br>--------------------------PENKTA UZDUOTIS---------------------
 // Prieš tai nupieštam kvadratui nupieškite raudonas istrižaines.
 
 echo "<div style = 'width: 500px; height: 500px'>";
-$krastinesIlgis = 20;
+$krastinesIlgis = 10;
 for($i = 1; $i < $krastinesIlgis; $i++){
     echo "<div style='width: 100%; display: inline-block;'>";
     for($j =1; $j < $krastinesIlgis; $j++){
@@ -131,7 +131,52 @@ echo $kazysCount > $petrasCount ? "<br> Laimejo Kazys surinkes $kazysCount tasku
 
 echo '<br><br><br>--------------------------ASTUNTA UZDUOTIS------------------------------<br><br><br>';
 
+
+
+// $randomColor = (rand(0, 256) . ', '. rand(0, 256) . ', '. rand(0, 256));
+// echo "<div style = 'width: 300px; height: 300px'>" . generuokEilutes() . '</div>';
+
+
+// function generuokEilutes(){
+//  for ($i = 0; $i < 21; $i++){
+//     $HTML = "<div style='width: 100%; display: inline-block; text-align: center'>" . generuokZvaigzdutes(i) . '</div>';
+//  } return $HTML;
+// }
+
+// function generuokZvaigzdutes($eilute){
+//     $HTML = '';
+//     if ($eilute < 10) {
+//         for($i = 0; $i < $eilute; $i++){
+//             $HTML .= "<div style ='padding-right: 10px; display: inline-block;'>*</div>";
+//         }
+//     } else {
+//         for ($i = 10; ($i > 21 - $eilute); $i--){
+//             $HTML .= "<div style ='padding-right: 10px; display: inline-block;'>*</div>";
+//         }
+//     }
+// }
+
+///////////////////////////////////////////
+
 $randomColor = (rand(0, 256) . ', '. rand(0, 256) . ', '. rand(0, 256));
+echo "<div style = 'width: 300px; height: 300px'>";
+
+ for ($eilute = 0; $eilute < 21; $eilute++){
+    echo "<div style='width: 100%; display: inline-block; text-align: center'>";
+    if ($eilute < 11) {
+        for($zvaigzdute = 0; $zvaigzdute < $eilute; $zvaigzdute++){
+            $randomColor = (rand(0, 256) . ', '. rand(0, 256) . ', '. rand(0, 256));
+            echo "<div style ='padding-right: 10px; display: inline-block; color: rgb( $randomColor);'>*</div>";
+        }
+    } else {
+        for ($zvaigzdute = 20 - $eilute; $zvaigzdute > 0; $zvaigzdute--){
+            $randomColor = (rand(0, 256) . ', '. rand(0, 256) . ', '. rand(0, 256));
+            echo "<div style ='padding-right: 10px; display: inline-block; color: rgb( $randomColor);'>*</div>";
+        }
+    } echo '</div>';
+ }
+echo '</div>';
+
 
 echo '<br><br><br>--------------------------DEVINTA UZDUOTIS------------------------------<br><br><br>';
 
@@ -152,9 +197,6 @@ $antrasUztruko = $antroPabaiga - $antroPradzia;
 echo $antrasUztruko> $pirmasUztruko ? 'dvigubos kabutes spasdinasi ilgiau' : 'viengubos kabutes spausdinasi ilgiau';
 
 echo '<br><br><br>--------------------------DESIMTA UZDUOTIS------------------------------<br><br><br>';
-// Sumodeliuokite vinies kalimą. Įkalimo gylį sumodeliuokite pasinaudodami rand() funkcija. Vinies ilgis 8.5cm (pilnai sulenda į lentą).
-// “Įkalkite” 5 vinis mažais smūgiais. Vienas smūgis vinį įkala 5-20 mm. Suskaičiuokite kiek reikia smūgių.
-// “Įkalkite” 5 vinis dideliais smūgiais. Vienas smūgis vinį įkala 20-30 mm, bet yra 50% tikimybė (pasinaudokite rand() funkcija tikimybei sumodeliuoti), kad smūgis nepataikys į vinį. Suskaičiuokite kiek reikia smūgių.
 
 //KALIMAS MAZAIS SMUGIAIS
 $viniesIlgis = 8.5;
@@ -183,7 +225,6 @@ for ($i = 0; $i < 5; $i++){
 echo $ikalta < $viniesIlgis ? 'penkiu dideliu smugiu nepakako<br>' : 'sukaliau vini pilnai<br>';
 
 echo '<br><br><br>--------------------------DESIMTA UZDUOTIS------------------------------<br><br><br>';
-// Sugeneruokite stringą, kurį sudarytų 50 atsitiktinių skaičių nuo 1 iki 200, atskirtų tarpais. Skaičiai turi būti unikalūs (t.y. nesikartoti). Sugeneruokite antrą stringą, pasinaudodami pirmu, palikdami jame tik pirminius skaičius (t.y tokius, kurie dalinasi be liekanos tik iš 1 ir patys savęs). Skaičius stringe sudėliokite didėjimo tvarka, nuo mažiausio iki didžiausio.
 
 $skaiciuMasyvas = [];
 
@@ -213,3 +254,8 @@ sort($pirminiuSkaiciuMasyvas);
 $pirminiuSkStringas = implode(' ', $pirminiuSkaiciuMasyvas);
 echo "<br><br>$pirminiuSkStringas<br><br>";
 
+
+
+ 
+ 
+    ?>
